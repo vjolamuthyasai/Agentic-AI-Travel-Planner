@@ -6,5 +6,3 @@ def create_app():
     app.include_router(router)
     return app
 
-
-
