@@ -1,6 +1,9 @@
 fastapi
 uvicorn
-pydantic
-streamlit
-serpapi
 crewai
+google-generativeai
+python-dotenv
+pydantic-settings
+pydantic
+google-search-results
+wrapt==1.15.0
