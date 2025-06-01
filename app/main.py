@@ -1,10 +1,21 @@
 from fastapi import FastAPI
-from app.api.routes import router
+from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+import os
 
-def create_app():
-    app = FastAPI(title="Agentic AI Travel Planner")
-    app.include_router(router)
-    return app
+from app.routes import travel
 
+load_dotenv()
+app = FastAPI(title="Travel Planning API", version="1.2.0")
 
+# CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
+# Include routers
+app.include_router(travel.router, prefix="/api/v1", tags=["travel"])
