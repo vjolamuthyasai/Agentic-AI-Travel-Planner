@@ -1,3 +1,4 @@
+import os
 
 from app.utils.logger import logger
 
@@ -10,6 +11,7 @@ from ..utils.search import search_flights, format_travel_data
 async def get_flight_recommendations(flight_request: FlightRequest) -> SearchResponse:
     """Search flights and get AI recommendation."""
     try:
+
         flights = await search_flights(flight_request)
 
         if not flights:
