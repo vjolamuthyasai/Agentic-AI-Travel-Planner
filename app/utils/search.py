@@ -17,7 +17,7 @@ async def run_search(params):
 
 async def search_flights(request):
     params = {
-        "api_key": os.getenv("SERP_API_KEY"),
+        "api_key": os.getenv("SERPER_API_KEY"),
         "engine": "google_flights",
         "departure_id": request.origin.upper(),
         "arrival_id": request.destination.upper(),
@@ -32,7 +32,7 @@ async def search_flights(request):
 
 async def search_hotels(request):
     params = {
-        "api_key": os.getenv("SERP_API_KEY"),
+        "api_key": os.getenv("SERPER_API_KEY"),
         "engine": "google_hotels",
         "q": request.location,
         "check_in_date": request.check_in_date,

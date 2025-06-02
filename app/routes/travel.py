@@ -10,7 +10,6 @@ from app.services.recommendation_service import complete_travel_search, generate
 
 router = APIRouter()
 
-
 @router.post("/flights", response_model=SearchResponse)
 async def search_flights_endpoint(flight_request: FlightRequest):
     return await get_flight_recommendations(flight_request)

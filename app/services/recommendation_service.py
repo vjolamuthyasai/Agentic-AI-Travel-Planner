@@ -7,9 +7,7 @@ import os
 from app.models.Itinerary import ItineraryRequest
 from app.models.flight import FlightRequest
 from app.models.hotel import HotelRequest
-from app.models.search import SearchRequest,SearchResponse
-from app.models.search import SearchRequest
-from app.models.search.searchResponse import SearchResponse
+from app.models.search import  SearchResponse, SearchRequest
 from app.services.flight_service import get_flight_recommendations
 from app.services.hotel_service import get_hotel_recommendations
 from app.utils.search import format_travel_data
