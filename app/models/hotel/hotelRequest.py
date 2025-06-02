@@ -1,6 +1,7 @@
 from datetime import date
 from pydantic import BaseModel
 
+
 class HotelRequest(BaseModel):
     location: str
     check_in_date: date

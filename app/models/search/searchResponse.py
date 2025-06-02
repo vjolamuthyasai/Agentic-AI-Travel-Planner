@@ -1,5 +1,8 @@
 from pydantic import BaseModel, Field
 from typing import List,Optional,Union
+from pydantic import BaseModel
+from typing import List, Optional
+
 
 from app.models.flight.flightInfo import FlightInfo
 from app.models.hotel.hotelInfo import HotelInfo
@@ -19,3 +22,4 @@ class SearchResponse(BaseModel):
         None,
         description="Error details if the request failed"
     )
+
