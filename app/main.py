@@ -3,9 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import os
 
-from app.routes import travel
-
 load_dotenv()
+
 app = FastAPI(title="Travel Planning API", version="1.2.0")
 
 # CORS middleware
@@ -17,11 +16,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include routers
-app.include_router(travel.router, prefix="/api/v1", tags=["travel"])
+try:
+    from app.routes import travel
+    app.include_router(travel.router, prefix="/api/v1", tags=["travel"])
+    print("✅ Routes imported successfully")
+except ImportError as e:
+    print(f"❌ Route import failed: {e}")
 
-# Add this block to run Uvicorn when executed directly
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
-
+    print("⏳ Starting server...")
+    try:
+        uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
+    except Exception as e:
+        print(f"❌ Server failed to start: {e}")
