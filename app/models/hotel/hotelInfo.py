@@ -58,3 +58,4 @@ class HotelInfo(BaseModel):
     location_rating: Optional[float] = None
     reviews_breakdown: Optional[List[ReviewBreakdown]] = []
     amenities: Optional[List[str]] = []
+    price: Optional[int] = None
