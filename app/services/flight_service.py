@@ -13,6 +13,7 @@ async def get_flight_recommendations(flight_request: FlightRequest) -> SearchRes
     try:
 
         flights = await search_flights(flight_request)
+        logger.debug(f"Raw SerpAPI response: {flights}")
 
         if not flights:
             return SearchResponse(
