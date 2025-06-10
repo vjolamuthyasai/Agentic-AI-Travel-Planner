@@ -9,6 +9,7 @@ from app.models.hotel.hotelInfo import GPSCoordinates, Rate, NearbyPlace, Transp
 from app.utils.logger import logger
 
 
+
 async def run_search(params):
     try:
         return await asyncio.to_thread(lambda: GoogleSearch(params).get_dict())
